@@ -4,7 +4,7 @@ require_once('loader.php');
 // return json response 
 $json = array();
  
-
+echo "OK";
  
 // GCM Registration ID got from device
 $gcmRegID  = $_REQUEST["regId"];
@@ -18,6 +18,7 @@ if (isset($gcmRegID)) {
      
     // Store user details in db
     $res = storeUser($gcmRegID);
+    echo $res;
 }
 
 $category = $_REQUEST["category"];

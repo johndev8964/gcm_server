@@ -23,7 +23,7 @@
                                      WHERE id = $id") or die(mysql_error());
             // return user details 
             if (mysql_num_rows($result) > 0) { 
-                return mysql_fetch_array($result);
+                return true;
             } else {
                 return false;
             }
