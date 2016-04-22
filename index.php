@@ -1,6 +1,4 @@
 <?php
-echo "OK"; 
-
 require_once('loader.php');
 
  

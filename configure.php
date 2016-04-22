@@ -2,7 +2,7 @@
  
 // Database config variables
 define("DB_HOST", "localhost");
-define("DB_USER", "host");
+define("DB_USER", "root");
 define("DB_PASSWORD", "g0iktpawsPW");
 define("DB_DATABASE", "pilot_gcm");
  
