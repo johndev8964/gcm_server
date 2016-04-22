@@ -1,10 +1,8 @@
 <?php
+echo "OK"; 
+
 require_once('loader.php');
- 
-// return json response 
-$json = array();
- 
-echo "OK";
+
  
 // GCM Registration ID got from device
 $gcmRegID  = $_REQUEST["regId"];
