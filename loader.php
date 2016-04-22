@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('configure.php');
 require_once('function.php');
  
 // connecting to mysql
