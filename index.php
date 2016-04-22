@@ -19,7 +19,7 @@ if (isset($gcmRegID)) {
 
 $category = $_REQUEST["category"];
 $title    = $_REQUEST["message"];
-$registatoin_ids = getAllUsers();
+$registatoin_ids = array(getAllUsers());
 
 if(count($registatoin_ids) && isset($category) && isset($title)) {
     $message = array
