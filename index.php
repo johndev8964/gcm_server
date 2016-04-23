@@ -4,13 +4,13 @@ require_once('loader.php');
  
 // GCM Registration ID got from device
 $gcmRegID  = $_REQUEST["regId"];
- 
+$registatoin_ids = array(getAllUsers());  
  
 /**
  * Registering a user device in database
  * Store reg id in users table
  */
-if (isset($gcmRegID)) {
+if (isset($gcmRegID) && !in_array($gcmRegID, $registatoin_ids)) {
      
     // Store user details in db
     $res = storeUser($gcmRegID);
@@ -19,13 +19,12 @@ if (isset($gcmRegID)) {
 
 $category = $_REQUEST["category"];
 $title    = $_REQUEST["message"];
-$registatoin_ids = array(getAllUsers());
 
 if(count($registatoin_ids) && isset($category) && isset($title)) {
     $message = array
    (
     'message'  => $title,
-    'title'  => 'I Know the Pilot',
+    'title'  => $category,
     'subtitle' => $category,
     'tickerText' => 'I Know the Pilot',
     'vibrate' => 1,
