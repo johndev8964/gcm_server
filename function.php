@@ -37,8 +37,12 @@
     // Getting all registered users
   function getAllUsers() {
         $result = mysql_query("select gcm_regid FROM gcm_users");
-        $rowUsers = mysql_fetch_array($result);
-        return $rowUsers["gcm_regid"];
+        $regids = array();
+        $i = 0;
+        while ($row = mysql_fetch_array($result)){
+            $regids[$i] = $row["gcm_regid"];
+        }
+        return $regids;
   }
  
      
