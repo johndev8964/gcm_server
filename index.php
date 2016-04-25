@@ -4,7 +4,7 @@ require_once('loader.php');
  
 // GCM Registration ID got from device
 $gcmRegID  = $_REQUEST["regId"];
-$registatoin_ids = getAllUsers();  
+$registatoin_ids = array(getAllUsers());  
  
 /**
  * Registering a user device in database
