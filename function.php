@@ -9,7 +9,7 @@
                       "INSERT INTO gcm_users
                             (gcm_regid, created_at) 
                             VALUES
-                            ( '$gcm_regid', 
+                            ( '$gcm_regid',
                                NOW())");
          
         // check for successful store

@@ -8,5 +8,5 @@ define("DB_DATABASE", "pilot_gcm");
  
 // Google Cloud Messaging API Key
 // Place your Google API Key
-define("GOOGLE_API_KEY", "AIzaSyCwj0coIrKvdtfSfLWPbgutp8771GGzqfs");                           
+define("GOOGLE_API_KEY", "AIzaSyCwj0coIrKvdtfSfLWPbgutp8771GGzqfs");                        
 ?>
