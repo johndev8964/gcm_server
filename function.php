@@ -41,6 +41,7 @@
         $i = 0;
         while ($row = mysql_fetch_array($result)){
             $regids[$i] = $row["gcm_regid"];
+            $i ++;
         }
         return $regids;
   }
