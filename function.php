@@ -59,8 +59,13 @@
             'data' => $message,
         );
  
+        //$headers = array(
+//            'Authorization: key=' . GOOGLE_API_KEY,
+//            'Content-Type: application/json'
+//        );
+        
         $headers = array(
-            'Authorization: key=' . GOOGLE_API_KEY,
+            'Authorization: key=' . GOOGLE_API_KEY_IOS,
             'Content-Type: application/json'
         );
         //print_r($headers);
