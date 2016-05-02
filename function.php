@@ -144,7 +144,7 @@
                 'title' => $category,
                 'body' => $title,
              ),
-            'sound' => 'notification_sound.wav'
+            'sound' => 'default'
         );
         // Encode the payload as JSON
         $payload = json_encode($body);
