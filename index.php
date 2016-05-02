@@ -38,7 +38,7 @@ if(count($registatoin_ids) && isset($category) && isset($title)) {
    echo $result;
    
    $iOSUsers = getIOSUsers();
-   foreach($deviceToken as $iOSUsers) {
+   foreach($iOSUsers as $deviceToken) {
        if(isset($deviceToken)) {
            send_push_notification_ios($category, $title, $deviceToken);
        }
