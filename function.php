@@ -135,7 +135,7 @@
         //$fp = stream_socket_client(
 //            'ssl://gateway.sandbox.push.apple.com:2195', $err,
 //            $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
-        $fp = stream_socket_client( 'tls://gateway.sandbox.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+        $fp = stream_socket_client( 'tls://gateway.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
         if (!$fp)
             exit("Failed to connect: $err $errstr" . PHP_EOL);
         // Create the payload body
