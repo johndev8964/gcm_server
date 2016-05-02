@@ -2,15 +2,16 @@
  
    //Storing new user and returns user details
     
-   function storeUser($gcm_regid) {
+   function storeUser($type, $gcm_regid) {
         
         // insert user into database
         $result = mysql_query(
                       "INSERT INTO gcm_users
-                            (gcm_regid, created_at) 
+                            (type, gcm_regid, created_at) 
                             VALUES
-                            ( '$gcm_regid',
-                               NOW())");
+                            ($type,
+                             '$gcm_regid',
+                             NOW())");
          
         // check for successful store
         if ($result) {
@@ -36,7 +37,7 @@
  
     // Getting all registered users
   function getAllUsers() {
-        $result = mysql_query("select gcm_regid FROM gcm_users");
+        $result = mysql_query("select * FROM gcm_users");
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
@@ -46,14 +47,41 @@
         return $regids;
   }
  
+    // Getting all registered Android users
+  function getAndroidUsers() {
+        $result = mysql_query("select * FROM gcm_users");
+        $regids = array();
+        $i = 0;
+        while ($row = mysql_fetch_array($result)){
+            if($row["type"] == 1) {
+                $regids[$i] = $row["gcm_regid"];
+                $i ++;
+            }
+        }
+        return $regids;
+  }
+  
+   // Getting all registered Android users
+  function getIOSUsers() {
+        $result = mysql_query("select * FROM gcm_users");
+        $regids = array();
+        $i = 0;
+        while ($row = mysql_fetch_array($result)){
+            if($row["type"] == 2) {
+                $regids[$i] = $row["gcm_regid"];
+                $i ++;
+            }
+        }
+        return $regids;
+  }
      
     //Sending Push Notification
-   function send_push_notification($registatoin_ids, $message) {
+   function send_push_notification_android($registatoin_ids, $message) {
          
  
         // Set POST variables
         $url = 'https://android.googleapis.com/gcm/send';
- 
+        
         $fields = array(
             'registration_ids' => $registatoin_ids,
             'data' => $message,
@@ -65,7 +93,7 @@
 //        );
         
         $headers = array(
-            'Authorization: key=' . GOOGLE_API_KEY_IOS,
+            'Authorization: key=' . GOOGLE_API_KEY,
             'Content-Type: application/json'
         );
         //print_r($headers);
@@ -93,5 +121,42 @@
         // Close connection
         curl_close($ch);
         echo $result;
+    }
+    
+    // Sends Push notification for iOS users
+    function send_push_notification_ios($category, $title, $devicetoken) {
+        $deviceToken = $devicetoken;
+        
+        $ctx = stream_context_create();
+        // ck.pem is your certificate file
+        stream_context_set_option($ctx, 'ssl', 'local_cert', 'Pilot.pem');
+        stream_context_set_option($ctx, 'ssl', 'passphrase', 'eksehd602');
+        // Open a connection to the APNS server
+        $fp = stream_socket_client(
+            'ssl://gateway.sandbox.push.apple.com:2195', $err,
+            $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+        if (!$fp)
+            exit("Failed to connect: $err $errstr" . PHP_EOL);
+        // Create the payload body
+        $body['aps'] = array(
+            'alert' => array(
+                'title' => $category,
+                'body' => $title,
+             ),
+            'sound' => 'default'
+        );
+        // Encode the payload as JSON
+        $payload = json_encode($body);
+        // Build the binary notification
+        $msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
+        // Send it to the server
+        $result = fwrite($fp, $msg, strlen($msg));
+        
+        // Close the connection to the server
+        fclose($fp);
+        if (!$result)
+            return 'Message not delivered' . PHP_EOL;
+        else
+            return 'Message successfully delivered' . PHP_EOL;
     }
 ?>
