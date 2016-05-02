@@ -129,12 +129,13 @@
         
         $ctx = stream_context_create();
         // ck.pem is your certificate file
-        stream_context_set_option($ctx, 'ssl', 'local_cert', 'Pilot.pem');
+        stream_context_set_option($ctx, 'ssl', 'local_cert', 'Pilot_Production.pem');
         stream_context_set_option($ctx, 'ssl', 'passphrase', 'eksehd602');
         // Open a connection to the APNS server
-        $fp = stream_socket_client(
-            'ssl://gateway.sandbox.push.apple.com:2195', $err,
-            $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+        //$fp = stream_socket_client(
+//            'ssl://gateway.sandbox.push.apple.com:2195', $err,
+//            $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+        $fp = stream_socket_client( 'tls://gateway.sandbox.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
         if (!$fp)
             exit("Failed to connect: $err $errstr" . PHP_EOL);
         // Create the payload body
