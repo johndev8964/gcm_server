@@ -11,7 +11,7 @@ $registatoin_ids = getAllUsers();
  * Registering a user device in database
  * Store reg id in users table
  */
-if (isset($gcmRegID) && !in_array($gcmRegID, $registatoin_ids && isset($type))) {
+if (isset($gcmRegID) && !in_array($gcmRegID, $registatoin_ids) && isset($type)) {
      
     // Store user details in db
     $res = storeUser($type ,$gcmRegID);
