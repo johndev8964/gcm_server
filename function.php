@@ -68,7 +68,7 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            if($row["type"] == 1 && strpos($row["categories"], $category) == 0) {
+            if($row["type"] == 1 && strlen($row["categories"]) > 0 && strpos($row["categories"], $category) == 0) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
@@ -82,7 +82,7 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            if($row["type"] == 2 && strpos($row["categories"], $category) == 0) {
+            if($row["type"] == 2 && strlen($row["categories"]) > 0 && strpos($row["categories"], $category) == 0) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
