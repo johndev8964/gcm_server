@@ -18,6 +18,20 @@ if (isset($gcmRegID) && !in_array($gcmRegID, $registatoin_ids) && isset($type)) 
     echo $res;
 }
 
+/**
+* Add Categories of users.
+* 
+* @var mixed
+*/
+$my_categories = $_REQUEST["my_categories"];
+if (isset($gcmRegID) && isset($my_categories)) {
+    
+    //Store or Update user categories
+    $res = updateCategories($my_categories, $gcmRegID);
+    echo $res;
+}
+
+
 $category = $_REQUEST["category"];
 $title    = $_REQUEST["message"];
 
@@ -34,10 +48,10 @@ if(count($registatoin_ids) && isset($category) && isset($title)) {
     'smallIcon' => 'small_icon'
    );
    
-   $result = send_push_notification_android(getAndroidUsers(), $message);
+   $result = send_push_notification_android(getAndroidUsers($category), $message);
    echo $result;
    
-   $iOSUsers = getIOSUsers();
+   $iOSUsers = getIOSUsers($category);
    foreach($iOSUsers as $deviceToken) {
        if(isset($deviceToken)) {
            send_push_notification_ios($category, $title, $deviceToken);

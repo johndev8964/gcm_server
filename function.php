@@ -32,7 +32,22 @@
         } else {
             return false;
         }
-    }
+  }
+  
+  //Updating user categories
+  
+  function updateCategories($categories, $gcm_regid) {
+      // update categories of user
+      $result = mysql_query("UPDATE gcm_users set categories = '$categories' where gcm_regid = '$gcm_regid'");
+      
+      //check for successfull store
+      if ($result) {
+          return true;
+      }
+      else {
+          return false;
+      }
+  }
  
  
     // Getting all registered users
@@ -48,12 +63,12 @@
   }
  
     // Getting all registered Android users
-  function getAndroidUsers() {
+  function getAndroidUsers($category) {
         $result = mysql_query("select * FROM gcm_users");
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            if($row["type"] == 1) {
+            if($row["type"] == 1 && strpos($row["categories"], $category) !== false) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
@@ -62,12 +77,12 @@
   }
   
    // Getting all registered Android users
-  function getIOSUsers() {
+  function getIOSUsers($category) {
         $result = mysql_query("select * FROM gcm_users");
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            if($row["type"] == 2) {
+            if($row["type"] == 2 && strpos($row["categories"], $category) !== false) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
