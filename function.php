@@ -68,7 +68,9 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            if($row["type"] == 1 && strpos($row["categories"], $category) !== false) {
+            $my_categories = str_replace($row["categories"], "", " ");
+            $my_category = str_replace($category, "", "+");
+            if($row["type"] == 1 && strpos($my_categories, $my_category) !== false) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
