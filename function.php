@@ -70,8 +70,8 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            $my_categories = explode(",", $row["categories"]);
-            if($row["type"] == 1 && strlen($row["categories"]) > 0 && (in_array($category, $my_categories) || $row["categories"] === $category)) {
+            $my_categories = explode(",", strtolower($row["categories"]));
+            if($row["type"] == 1 && strlen($row["categories"]) > 0 && in_array(strtolower($category), $my_categories) || strtolower($row["categories"]) === strtolower($category)) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
@@ -85,8 +85,8 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            $my_categories = explode(",", $row["categories"]);
-            if($row["type"] == 2 && strlen($row["categories"]) > 0 && in_array($category, $my_categories) || $row["categories"] === $category) {
+            $my_categories = explode(",", strtolower($row["categories"]));
+            if($row["type"] == 2 && strlen($row["categories"]) > 0 && in_array(strtolower($category), $my_categories) || strtolower($row["categories"]) === strtolower($category)) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
