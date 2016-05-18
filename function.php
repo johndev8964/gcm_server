@@ -61,6 +61,25 @@
         }
         return $regids;
   }
+  
+  /**
+    * Checks to see of a string contains a particular substring
+    * @param $substring the substring to match
+    * @param $string the string to search 
+    * @return true if $substring is found in $string, false otherwise
+  */
+  function contains($substring, $string) {
+        $pos = strpos($string, $substring);
+ 
+        if($pos === false) {
+                // string needle NOT found in haystack
+                return false;
+        }
+        else {
+                // string needle found in haystack
+                return true;
+        }
+  }
  
     // Getting all registered Android users
   function getAndroidUsers($category) {
@@ -68,8 +87,7 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            $my_categories = explode(",", $row["categories"]);
-            if($row["type"] == 1 && strlen($row["categories"]) > 0 && in_array($category, $my_categories)) {
+            if($row["type"] == 1 && contains($category, $row["categories"])) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
@@ -83,8 +101,7 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            $my_categories = explode(",", $row["categories"]);
-            if($row["type"] == 2 && strlen($row["categories"]) > 0 && in_array($category, $my_categories)) {
+            if($row["type"] == 2 && contains($category, $row["categories"])) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
