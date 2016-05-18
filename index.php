@@ -33,6 +33,8 @@ if (isset($gcmRegID) && isset($my_categories)) {
 
 
 $category = $_REQUEST["category"];
+echo $category;
+
 $title    = $_REQUEST["message"];
 
 if(count($registatoin_ids) && isset($category) && isset($title)) {
