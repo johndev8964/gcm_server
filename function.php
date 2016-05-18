@@ -68,9 +68,7 @@
         $regids = array();
         $i = 0;
         while ($row = mysql_fetch_array($result)){
-            $my_categories = str_replace($row["categories"], "", " ");
-            $my_category = str_replace($category, "", "+");
-            if($row["type"] == 1 && strpos($my_categories, $my_category) !== false) {
+            if($row["type"] == 1 && strlen(strstr($row["categories"], $category)) > 0) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
@@ -83,11 +81,8 @@
         $result = mysql_query("select * FROM gcm_users");
         $regids = array();
         $i = 0;
-        while ($row = mysql_fetch_array($result)){
-            $my_categories = str_replace($row["categories"], "", " ");
-            $my_category = str_replace($category, "", "+");
-            
-            if($row["type"] == 2 && strpos($my_categories, $my_category) !== false) {
+        while ($row = mysql_fetch_array($result)){            
+            if($row["type"] == 2 && strlen(strstr($row["categories"], $category)) > 0) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
