@@ -90,7 +90,7 @@
                 }    
             }
             
-            if($row["type"] == 2 && $send_ok) {
+            if($row["type"] == 1 && $send_ok) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
