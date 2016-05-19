@@ -16,8 +16,7 @@
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	
-	<item>
+	    <item>
         <title>CheapTickets.com 17% off and Orbitz 15% off Hotel Bookings</title>
         <link>http://baidu.com</link>
         <comments>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/#respond</comments>
@@ -33,6 +32,7 @@
         <wfw:commentRss>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/feed/</wfw:commentRss>
         <slash:comments>0</slash:comments>
         </item>
+	    <item>
 		<title>CheapTickets.com 17% off and Orbitz 15% off Hotel Bookings</title>
 		<link>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/</link>
 		<comments>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/#respond</comments>
