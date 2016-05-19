@@ -71,7 +71,26 @@
         $i = 0;
         while ($row = mysql_fetch_array($result)){
             $my_categories = explode(",", strtolower($row["categories"]));
-            if($row["type"] == 1 && strlen($row["categories"]) > 0 && in_array(strtolower($category), $my_categories) || strtolower($row["categories"]) === strtolower($category)) {
+            $categories = explode(",", strtolower($category));
+            
+            $send_ok = false;
+            if (count($my_categories) > 0) {
+                if (count($categories) > 0) {
+                    if(0 < count(array_intersect($my_categories, $categories))) {
+                        $send_ok = true;
+                    }
+                }
+                else {
+                    $send_ok = in_array(strtolower($category), $my_categories);
+                }
+            }
+            else {
+                if (strtolower($row["categories"]) === strtolower($category)) {
+                    $send_ok = true;    
+                }    
+            }
+            
+            if($row["type"] == 2 && $send_ok) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }
@@ -86,7 +105,26 @@
         $i = 0;
         while ($row = mysql_fetch_array($result)){
             $my_categories = explode(",", strtolower($row["categories"]));
-            if($row["type"] == 2 && strlen($row["categories"]) > 0 && in_array(strtolower($category), $my_categories) || strtolower($row["categories"]) === strtolower($category)) {
+            $categories = explode(",", strtolower($category));
+            
+            $send_ok = false;
+            if (count($my_categories) > 0) {
+                if (count($categories) > 0) {
+                    if(0 < count(array_intersect($my_categories, $categories))) {
+                        $send_ok = true;
+                    }
+                }
+                else {
+                    $send_ok = in_array(strtolower($category), $my_categories);
+                }
+            }
+            else {
+                if (strtolower($row["categories"]) === strtolower($category)) {
+                    $send_ok = true;    
+                }    
+            }
+            
+            if($row["type"] == 2 && $send_ok) {
                 $regids[$i] = $row["gcm_regid"];
                 $i ++;
             }

@@ -17,6 +17,23 @@
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
         <item>
+        <title>iOS Testing 3</title>
+        <link>http://stackoverflow.com</link>
+        <comments>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/#respond</comments>
+        <pubDate>Tue, 17 May 2016 02:05:14 +0000</pubDate>
+        <dc:creator><![CDATA[The Guy That Knows The Pilot]]></dc:creator>
+                <category><![CDATA[Flights from Australia]]></category>
+                <category><![CDATA[Flights from Usa]]></category>
+        <category><![CDATA[cheaptickets]]></category>
+        <category><![CDATA[hotels]]></category>
+        <category><![CDATA[orbitz]]></category>
+
+        <guid isPermaLink="false">http://iknowthepilot.com.au/?p=786</guid>
+        <description><![CDATA[<div id="pw-spe-post-expiration-786" class="pw-spe-post-expiration">This item expires on: May 24, 2016</div><a href="http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/"><img src="http://iknowthepilot.com.au/wp-content/uploads/2016/05/Hotels-1083x502.png" style="width:100%;height:auto;margin-bottom:10px" /></a>Cheaptickets.com https://www.cheaptickets.com/g/lc/traveldeals-cheaptickets-coupon-promo-code Promo code: MAYFLOWER Minimum stay: none Book by May 22, 2016, travel by September 30, 2016 Orbitz.com https://www.orbitz.com/g/lc/traveldeals-orbitz-coupon-promo-code Promo code: PEACEOUT Minimum stay: none Book by May 29, 2016, travel by September 30, 2016 &#160; Both sites are owned by Expedia and both are in USD (so take currency conversion charges into account [&#8230;]]]></description>
+        <wfw:commentRss>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/feed/</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
         <title>iOS Testing 2</title>
         <link>http://github.com</link>
         <comments>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/#respond</comments>
