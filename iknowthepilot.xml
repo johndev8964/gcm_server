@@ -17,12 +17,14 @@
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	    <item>
-        <title>CheapTickets.com 17% off and Orbitz 15% off Hotel Bookings</title>
-        <link>http://baidu.com</link>
+        <title>iOS Testing 1</title>
+        <link>http://fir.im</link>
         <comments>http://iknowthepilot.com.au/cheaptickets-com-17-off-and-orbitz-15-off-hotel-bookings/#respond</comments>
         <pubDate>Tue, 17 May 2016 02:05:14 +0000</pubDate>
         <dc:creator><![CDATA[The Guy That Knows The Pilot]]></dc:creator>
                 <category><![CDATA[Flights from Australia]]></category>
+                <category><![CDATA[Flights from Usa]]></category>
+                <category><![CDATA[Flights from Test]]></category>
         <category><![CDATA[cheaptickets]]></category>
         <category><![CDATA[hotels]]></category>
         <category><![CDATA[orbitz]]></category>
