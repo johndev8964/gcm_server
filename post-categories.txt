@@ -3,3 +3,4 @@ Flights from India,false
 Flights from New Zealand,false
 Flights from UK,false
 Flights from USA,false
+Flights from Test,true
